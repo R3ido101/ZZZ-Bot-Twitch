@@ -2,13 +2,12 @@ import org.omg.CORBA.Object;
 import org.pircbotx.Configuration;
 import org.pircbotx.*;
 import org.pircbotx.cap.EnableCapHandler;
+import org.pircbotx.exception.IrcException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.yaml.snakeyaml.Yaml;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -16,14 +15,14 @@ public class Main extends PircBotX {
 
     public static Logger logger = LoggerFactory.getLogger(Main.class);
     public static Map<String, Object> conf = null;
-    public static Yaml<Main> = new Yaml();
+    public static Yaml cfg = new Yaml();
     public static File configurationFile = new File("Config/botlogin.yml");
     public static void setupFolders(){
         File f = new File("Config");
         f.mkdir();
 
         try{
-            if(!configurationFile.exists())){
+            if(!configurationFile.exists());){
                 configurationFile.createNewFile();
                 Scanner scanner = new Scanner(Main.class.getResourceAsStream("./BotLogin.yml"));
                 FileWriter fileWriter = null;
@@ -41,10 +40,11 @@ public class Main extends PircBotX {
             e.printStackTrace();
         }
     try {
-        conf = (Map<String, Object>) yaml.load(new fileImputStream(configurationFile));
+        conf = (Map<String, Object>) yaml.load(new FileInputStream(configurationFile));
     } catch(FileNotFoundException e) {
         e.printStackTrace();
     }
+
     public static void main(String[] args) throws Exception{
         //Configure what we want our bot to do
         Configuration configuration = new Configuration.Builder()
@@ -63,13 +63,13 @@ public class Main extends PircBotX {
         //Create our bot with the configuration
         PircBotX bot = new PircBotX(configuration);
         //Connect to the server
-        bot.startBot();
-    }
-
-
-
-
-
-
+            try {
+                bot.startBot();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (IrcException e) {
+                e.printStackTrace();
+            }
+        };
 
 }

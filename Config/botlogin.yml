@@ -1,0 +1,12 @@
+#|=======================================|
+#|Bot Made By R3ido101  V Snap-0.0.1     |
+#|=======================================|
+
+# Put Your Bot Name Here.
+name = putnamehere
+
+# Put your OAUTH key that you can get from https://www.twitchapps.com/tmi here.
+oauth = OAUTH:kl3432lk4jlkjLKJkl34j
+
+# Put The Channel Here you want the bot to join.
+channel =

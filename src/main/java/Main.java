@@ -1,20 +1,13 @@
-import org.slf4j.Logger;
 
 /**
  * TODO
- *
- * Fix "Error:(52, 61) java: incompatible types: java.lang.String cannot be converted to org.omg.CORBA.Object
- Error:(54, 55) java: incompatible types: java.lang.String cannot be converted to org.omg.CORBA.Object
- Error:(53, 62) java: incompatible types: java.lang.String cannot be converted to org.omg.CORBA.Object"
- and see where they are coming from
- *
+ *  Look at Line 58 to 61 and see why the code it crashing
  */
 
-import org.omg.CORBA.Object;
+import org.slf4j.Logger;
 import org.pircbotx.Configuration;
 import org.pircbotx.*;
 import org.pircbotx.cap.EnableCapHandler;
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.yaml.snakeyaml.DumperOptions;
 import org.yaml.snakeyaml.Yaml;
@@ -62,8 +55,8 @@ public class Main {
 
     public static void main(String[] args) {
         String botName = (String) conf.getOrDefault("nick", " nick");
-        String oauthPassword = conf.getOrDefault("password", "default password");
-        String channel = conf.getOrDefault("channel", "default channel");
+        String oauthPassword = (String) conf.getOrDefault("password", "default password");
+        String channel = (String) conf.getOrDefault("channel", "default channel");
 
         Configuration configuration = new Configuration.Builder() //
                 .setAutoNickChange(false) //

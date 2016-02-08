@@ -55,6 +55,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        setupFolders();
         String botName = (String) conf.getOrDefault("nick", " nick");
         String oauthPassword = (String) conf.getOrDefault("password", "default password");
         String channel = (String) conf.getOrDefault("channel", "default channel");

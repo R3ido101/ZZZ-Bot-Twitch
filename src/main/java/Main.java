@@ -20,15 +20,16 @@ import java.lang.*;
 
 public class Main {
     public static Logger logger				= LoggerFactory.getLogger(Main.class);
-//    public static Map<String, Object> conf = null;
-    public static Map<String, Object> conf = new HashMap<String, Object>();
+    public static Map<String, Object> conf = null;
     public static File					configurationFile	= new File("Config/botlogin.yml");
 
     public static void setupFolders() {
+        logger.info("Begin reading the configuration");
         File directory = configurationFile.getParentFile();
         if (!directory.exists()) directory.mkdirs();
 
         if (!configurationFile.exists()) {
+            logger.info("Config file doesn't exists , attempting to create it");
             try {
                 BufferedReader reader = new BufferedReader(new InputStreamReader(Main.class.getClassLoader().getResourceAsStream("BotLogin.yml")));
                 FileWriter writer = new FileWriter(configurationFile);
@@ -46,9 +47,12 @@ public class Main {
         }
 
         try {
+            logger.info("Config file exists");
             Yaml yaml = new Yaml(new Representer(), new DumperOptions());
             conf = (Map<String, Object>)yaml.load(new FileInputStream(configurationFile));
+            logger.info("Managed to load config file");
         } catch (Throwable t) {
+            logger.error("Config file load failed");
             conf = new HashMap();
             t.printStackTrace();
         }
@@ -56,9 +60,10 @@ public class Main {
 
     public static void main(String[] args) {
         setupFolders();
-        String botName = (String) conf.getOrDefault("nick", " nick");
-        String oauthPassword = (String) conf.getOrDefault("password", "default password");
+        String botName = (String) conf.getOrDefault("name", " nick");
+        String oauthPassword = (String) conf.getOrDefault("oauth", "default password");
         String channel = (String) conf.getOrDefault("channel", "default channel");
+        logger.info("botName : "+ botName+" oauthPassword :  "+oauthPassword+" channel : "+channel);
 
         Configuration configuration = new Configuration.Builder() //
                 .setAutoNickChange(false) //

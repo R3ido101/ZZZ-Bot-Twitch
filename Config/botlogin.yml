@@ -3,10 +3,10 @@
 #|=======================================|
 
 # Put Your Bot Name Here.
-name = putnamehere
+name : !!str putnamehere
 
 # Put your OAUTH key that you can get from https://www.twitchapps.com/tmi here.
-oauth = OAUTH:kl3432lk4jlkjLKJkl34j
+oauth : !!str OAUTH:kl3432lk4jlkjLKJkl34j
 
 # Put The Channel Here you want the bot to join.
-channel =
+channel : !!str default

@@ -20,7 +20,8 @@ import java.lang.*;
 
 public class Main {
     public static Logger logger				= LoggerFactory.getLogger(Main.class);
-    public static Map<String, Object> conf = null;
+//    public static Map<String, Object> conf = null;
+    public static Map<String, Object> conf = new HashMap<String, Object>();
     public static File					configurationFile	= new File("Config/botlogin.yml");
 
     public static void setupFolders() {

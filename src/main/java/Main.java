@@ -70,7 +70,7 @@ public class Main {
                 .setOnJoinWhoEnabled(false) //
                 .setCapEnabled(true) //
                 .addCapHandler(new EnableCapHandler("twitch.tv/membership")) //
-                .addServer("irc.twitch/.tv") //
+                .addServer("irc.twitch.tv") //
                 .setName(botName) //
                 .setServerPassword(oauthPassword) //
                 .addAutoJoinChannel(channel) //

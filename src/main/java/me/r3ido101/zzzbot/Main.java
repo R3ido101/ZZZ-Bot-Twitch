@@ -58,7 +58,8 @@ public class Main {
         String botName = (String) conf.getOrDefault("name", " nick");
         String oauthPassword = (String) conf.getOrDefault("oauth", "default password");
         String channel = (String) conf.getOrDefault("channel", "default channel");
-        logger.info("botName : "+ botName+" oauthPassword :  "+oauthPassword+" channel : "+channel);
+        logger.info("botName : "+botName+" oauthPassword :  "+oauthPassword+" channel : "+channel);
+        logger.info("We are now connecting to " + channel);
 
         Configuration configuration = new Configuration.Builder() //
                 .setAutoNickChange(false) //

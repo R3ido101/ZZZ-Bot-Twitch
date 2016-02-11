@@ -8,12 +8,6 @@ import org.pircbotx.hooks.types.GenericMessageEvent;
 
 public class Listener extends ListenerAdapter {
 
-    @Override
-    public void onConnect(ConnectEvent event) throws Exception {
-        super.onConnect(event);
-        event.respond("Hello Im Here @R3ido101");
-    }
-
     public void onGenericMessage(GenericMessageEvent e){
 
         if(e.getMessage().startsWith("!hi")) {

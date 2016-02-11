@@ -1,3 +1,5 @@
+package me.r3ido101.zzzbot;
+
 import org.pircbotx.hooks.ListenerAdapter;
 
 import org.pircbotx.hooks.events.ConnectEvent;

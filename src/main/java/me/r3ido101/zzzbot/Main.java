@@ -1,9 +1,4 @@
-
-/**
- * TODO
- *  Look at Line 58 to 61 and see why the code it crashing
- */
-
+package me.r3ido101.zzzbot;
 import org.slf4j.Logger;
 import org.pircbotx.Configuration;
 import org.pircbotx.*;

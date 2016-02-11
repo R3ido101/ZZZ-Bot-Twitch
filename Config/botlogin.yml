@@ -7,7 +7,7 @@
 name : !!str zzz_bot
 
 # Put your OAUTH key that you can get from https://www.twitchapps.com/tmi here.
-oauth : !!str oauth:gcgjdwbnevay47bf9uqnjn88ekpcbw
+oauth : !!str oauth:klfjdskjf;dsfjldskfds;lfkds;lfds
 
 # Put The Channel Here you want the bot to join.
 channel : !!str deslashcodegaming

@@ -1,39 +1,25 @@
 package me.r3ido101.zzzbot;
 
-import org.pircbotx.hooks.ListenerAdapter;
-
-import org.pircbotx.hooks.events.ConnectEvent;
+import org.pircbotx.hooks.*;
 import org.pircbotx.hooks.types.GenericMessageEvent;
-
 
 public class Listener extends ListenerAdapter {
 
-    public void onGenericMessage(GenericMessageEvent e){
+    public void onGenericMessage(GenericMessageEvent e) {
 
-        if(e.getMessage().startsWith("!hi")) {
-            e.respondWith("Hey!" + "  " + e.getMessage());
+        if(e.getMessage().equalsIgnoreCase("!test")) {
+            e.respondWith("this is a test.");
         }
 
-        if(e.getUser().equals("r3ido101")){
-            e.respond("Hello! R3ido101");
-        }
-
-        if(e.getMessage().equals("!zzz")) {
-
-            e.respondWith("Hello I am zZz-Bot how can i help?!");
+        if(e.getMessage().equalsIgnoreCase("Kappa")) {
+           e.respond("your not a Kappa your a KappaRoss");
 
         }
+        if(e.getMessage().equalsIgnoreCase("!fucked")) {
+            e.respond(" - whent go go and fuck a girl!");
 
-        if(e.getMessage().equals("!nb")) {
-            e.respondWith("these are the commands for NightBot");
-            e.respond("!commands");
         }
 
-        if(e.getUser().equals("r3ido101")){
-            e.respondWith("hey My Master hows it going!! :)");
-        }
     }
-
-
 
 }

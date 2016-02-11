@@ -69,7 +69,7 @@ public class Main {
                 .addServer("irc.twitch.tv") //
                 .setName(botName) //
                 .setServerPassword(oauthPassword) //
-                .addAutoJoinChannel(channel) //
+                .addAutoJoinChannel("#" + channel) //
                 .addListener(new Listener()) //
                 .buildConfiguration();
 

@@ -1,4 +1,4 @@
-https://travis-ci.org/Amahlaka/ZZZ-Bot-Twitch.svg
+<img src="https://travis-ci.org/amahlaka/ZZZ-Bot-Twitch.svg?branch=master" alt="Build Status" />
 
 ## zZz-Bot Made By R3ido101
 #--------------------------------------------------------------------------

@@ -1,4 +1,5 @@
 language: java
+sudo: required
 before_install: apt-get install oracle-java8-installer
 jdk:
 - oraclejdk8

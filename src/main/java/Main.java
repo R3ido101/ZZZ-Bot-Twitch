@@ -1,8 +1,9 @@
-package me.r3ido101.zzzbot;
+
 import org.slf4j.Logger;
 import org.pircbotx.Configuration;
 import org.pircbotx.*;
 import org.pircbotx.cap.EnableCapHandler;
+
 import org.slf4j.LoggerFactory;
 import org.yaml.snakeyaml.DumperOptions;
 import org.yaml.snakeyaml.Yaml;
@@ -16,7 +17,7 @@ import java.lang.*;
 public class Main {
     public static Logger logger				= LoggerFactory.getLogger(Main.class);
     public static Map<String, Object> conf = null;
-    public static File					configurationFile	= new File("Config/botlogin.yml");
+    public static File					configurationFile	= new File("./Config/botlogin.yml");
 
     public static void setupFolders() {
         logger.info("Begin reading the configuration");
@@ -44,11 +45,12 @@ public class Main {
         try {
             logger.info("Config file exists");
             Yaml yaml = new Yaml(new Representer(), new DumperOptions());
-            conf = (Map<String, Object>)yaml.load(new FileInputStream(configurationFile));
+            Map<String, Object> load = (Map<String, Object>)yaml.load(new FileInputStream(configurationFile));
+			conf = load;
             logger.info("Managed to load config file");
         } catch (Throwable t) {
             logger.error("Config file load failed");
-            conf = new HashMap();
+            conf = new HashMap<String, Object>();
             t.printStackTrace();
         }
     }

@@ -1,6 +1,6 @@
 language: java
 before_install
-  - ls
+  - ls;
 install
 before_script
 script

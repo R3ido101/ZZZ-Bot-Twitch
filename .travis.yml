@@ -1,3 +1,8 @@
 language: java
 before_install: ls; cd Config; ls; cd ..
-
+jdk:
+  - oraclejdk8
+ addons:
+    apt:
+    packages:
+    - oracle-java8-installer

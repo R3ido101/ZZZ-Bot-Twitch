@@ -1,4 +1,4 @@
-https://travis-ci.org/R3ido101/ZZZ-Bot-Twitch.svg?branch=master
+https://travis-ci.org/Amahlaka/ZZZ-Bot-Twitch.svg
 
 ## zZz-Bot Made By R3ido101
 #--------------------------------------------------------------------------

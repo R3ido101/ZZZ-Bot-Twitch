@@ -1,8 +1,3 @@
 language: java
-before_install
-  - ls;
-install
-before_script
-script
-
+before_install: ls
 

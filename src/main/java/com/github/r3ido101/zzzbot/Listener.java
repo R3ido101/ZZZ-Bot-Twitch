@@ -1,4 +1,4 @@
-
+package com.github.r3ido101.zzzbot;
 
 import org.pircbotx.hooks.*;
 import org.pircbotx.hooks.types.GenericMessageEvent;

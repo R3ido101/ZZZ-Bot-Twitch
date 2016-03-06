@@ -14,7 +14,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.lang.*;
 
-public class Main {
+public class Main
+{
     public static Logger logger				= LoggerFactory.getLogger(Main.class);
     public static Map<String, Object> conf = null;
     public static File					configurationFile	= new File("./Config/botlogin.yml");

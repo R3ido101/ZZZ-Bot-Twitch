@@ -5,6 +5,10 @@ import org.pircbotx.Configuration;
 import org.pircbotx.*;
 import org.pircbotx.cap.EnableCapHandler;
 
+import org.jibble.pircbot.*;
+
+import java.util.HashMap;
+
 import org.slf4j.LoggerFactory;
 import org.yaml.snakeyaml.DumperOptions;
 import org.yaml.snakeyaml.Yaml;

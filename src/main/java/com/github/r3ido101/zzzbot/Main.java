@@ -1,22 +1,19 @@
 package com.github.r3ido101.zzzbot;
 
+import org.pircbotx.Configuration;
+import org.pircbotx.PircBotX;
+import org.pircbotx.cap.EnableCapHandler;
 import org.pircbotx.hooks.ListenerAdapter;
 import org.pircbotx.hooks.types.GenericMessageEvent;
 import org.slf4j.Logger;
-import org.pircbotx.Configuration;
-import org.pircbotx.*;
-import org.pircbotx.cap.EnableCapHandler;
-
-import java.util.HashMap;
-
 import org.slf4j.LoggerFactory;
 import org.yaml.snakeyaml.DumperOptions;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.representer.Representer;
+
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
-import java.lang.*;
 
 public class Main
 {
@@ -92,29 +89,39 @@ public class Main
 
         public void onGenericMessage(GenericMessageEvent e) {
 
+            //public static File = configurationFile	= new File("./Config/botlogin.yml");
+
             String botName = (String) conf.getOrDefault("name", " nick");
             String oauthPassword = (String) conf.getOrDefault("oauth", "default password");
             String channel = (String) conf.getOrDefault("channel", "default channel");
             logger.info("botName : "+botName+" oauthPassword :  "+oauthPassword+" channel : "+channel);
             logger.info("We are now connecting to " + channel);
 
-            File configurationFile = new File("./Config/botlogin.yml");
 
             if(e.getMessage().equalsIgnoreCase("!test")) {
                 e.respondWith("this is a test.");
             }
 
             if(e.getMessage().equalsIgnoreCase("Kappa")) {
-                e.respond( botName +  "your not a Kappa your a KappaRoss");
+                e.respond(botName + "your not a Kappa your a KappaRoss");
 
             }
             if(e.getMessage().equalsIgnoreCase("!fucked")) {
-                e.respond( channel + " - whent go go and fuck a girl!");
+                e.respond(e.getUser() + " " + " - whent go go and fuck a girl!");
 
             }
 
             if(e.getMessage().equalsIgnoreCase("!bot")) {
                 e.respondWith("/me " + "⛔ " + "I'm zZz_Bot Made By R3ido101 (https://www.twitch.tv/R3ido101) I use Pircbotx version - " + PircBotX.VERSION + " to work!" + " ⛔");
+            }
+
+            if (e.getMessage().equalsIgnoreCase("!test")) {
+                e.respondWith(e.getUser().getNick() + " " + "zZz-Bot Is speaking in" + " " + channel);
+            }
+
+            if (e.getMessage().equalsIgnoreCase("!time")) {
+                String time = new java.util.Date().toString();
+                e.respondWith("Hey " + e.getUser().getNick() + " the time is " + time + " !");
             }
 
         }
@@ -126,3 +133,4 @@ public class Main
 // TODO: This is a reminder that i need to add the twitch api to my bot so i know i can get it work work with the api under the package
 // TODO: me.r3ido101.zzzbot.twitchapi.
 // TODO: Need to check to see if the bot will pick up vital information form the twitch api.
+// TODO: Need to add welcome message when bot is started.

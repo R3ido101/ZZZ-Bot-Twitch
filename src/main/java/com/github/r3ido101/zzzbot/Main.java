@@ -107,12 +107,21 @@ public class Main
 
             }
             if(e.getMessage().equalsIgnoreCase("!fucked")) {
-                e.respond( channel + " - whent go go and fuck a girl!");
+                e.respond(e.getUser() + " " + " - whent go go and fuck a girl!");
 
             }
 
             if(e.getMessage().equalsIgnoreCase("!bot")) {
                 e.respondWith("/me " + "⛔ " + "I'm zZz_Bot Made By R3ido101 (https://www.twitch.tv/R3ido101) I use Pircbotx version - " + PircBotX.VERSION + " to work!" + " ⛔");
+            }
+
+            if (e.getMessage().equalsIgnoreCase("!test")) {
+                e.respondWith(e.getUser().getNick() + " " + "zZz-Bot Is speaking in" + " " + channel);
+            }
+
+            if (e.getMessage().equalsIgnoreCase("!time")) {
+                String time = new java.util.Date().toString();
+                e.respondWith("Hey " + e.getUser().getNick() + " the time is " + time + " !");
             }
 
         }
@@ -124,3 +133,4 @@ public class Main
 // TODO: This is a reminder that i need to add the twitch api to my bot so i know i can get it work work with the api under the package
 // TODO: me.r3ido101.zzzbot.twitchapi.
 // TODO: Need to check to see if the bot will pick up vital information form the twitch api.
+// TODO: Need to add welcome message when bot is started.

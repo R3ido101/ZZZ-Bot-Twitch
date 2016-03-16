@@ -92,16 +92,24 @@ public class Main
 
         public void onGenericMessage(GenericMessageEvent e) {
 
+            String botName = (String) conf.getOrDefault("name", " nick");
+            String oauthPassword = (String) conf.getOrDefault("oauth", "default password");
+            String channel = (String) conf.getOrDefault("channel", "default channel");
+            logger.info("botName : "+botName+" oauthPassword :  "+oauthPassword+" channel : "+channel);
+            logger.info("We are now connecting to " + channel);
+
+            File configurationFile = new File("./Config/botlogin.yml");
+
             if(e.getMessage().equalsIgnoreCase("!test")) {
                 e.respondWith("this is a test.");
             }
 
             if(e.getMessage().equalsIgnoreCase("Kappa")) {
-                e.respond("your not a Kappa your a KappaRoss");
+                e.respond( botName +  "your not a Kappa your a KappaRoss");
 
             }
             if(e.getMessage().equalsIgnoreCase("!fucked")) {
-                e.respond(" - whent go go and fuck a girl!");
+                e.respond( channel + " - whent go go and fuck a girl!");
 
             }
 

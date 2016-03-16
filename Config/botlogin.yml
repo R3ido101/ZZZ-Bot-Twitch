@@ -7,10 +7,10 @@
 name : !!str zzz_bot
 
 # Put your OAUTH key that you can get from https://www.twitchapps.com/tmi here.
-oauth : !!str oauth:###############################################
+oauth : !!str oauth:nd9f07uh28w949sau1nelocv6iqdxu
 
 # Put The Channel Here you want the bot to join.
-channel : !!str devin_brimer
+channel : !!str r3ido101
 
 # If you want to give credit to friend
 

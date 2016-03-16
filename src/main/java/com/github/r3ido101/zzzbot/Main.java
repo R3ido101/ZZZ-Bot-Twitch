@@ -117,3 +117,4 @@ public class Main
 
 // TODO: This is a reminder that i need to add the twitch api to my bot so i know i can get it work work with the api under the package
 // TODO: me.r3ido101.zzzbot.twitchapi.
+// TODO: Need to check to see if the bot will pick up vital information form the twitch api.

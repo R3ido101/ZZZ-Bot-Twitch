@@ -1,5 +1,8 @@
 package com.github.r3ido101.zzzbot;
 
+
+import com.mb3364.twitch.api.Twitch;
+import com.mb3364.twitch.api.auth.Scopes;
 import org.pircbotx.Configuration;
 import org.pircbotx.PircBotX;
 import org.pircbotx.cap.EnableCapHandler;
@@ -12,11 +15,15 @@ import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.representer.Representer;
 
 import java.io.*;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Main
 {
+
+
     public static Logger logger				= LoggerFactory.getLogger(Main.class);
     public static Map<String, Object> conf = null;
     public static File					configurationFile	= new File("./Config/botlogin.yml");
@@ -57,7 +64,7 @@ public class Main
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws URISyntaxException {
         setupFolders();
         String botName = (String) conf.getOrDefault("name", " nick");
         String oauthPassword = (String) conf.getOrDefault("oauth", "default password");
@@ -83,7 +90,34 @@ public class Main
         } catch (Throwable t) {
             t.printStackTrace();
         }
-    }
+
+        Twitch twitch = new Twitch();
+        twitch.setClientId("shjdkashjkfdl"); // This is your registered application's client ID
+
+/* Specify your registered callback URI */
+        URI callbackUri = new URI("http://127.0.0.1:23522/authorize.html");
+
+/* Get the authentication URL. Note: you will set the required scopes needed here. */
+        String authUrl = twitch.auth().getAuthenticationUrl(twitch.getClientId(), callbackUri, Scopes.USER_READ, Scopes.CHANNEL_READ);
+
+/* Send the user to the webpage somehow so that they can authorize your application */
+        openWebpage(authUrl);
+
+/* Waits for the user to authorize or deny your application. Note: this function will block until a response is received! */
+        boolean authSuccess = twitch.auth().awaitAccessToken();
+
+/* Check if authentication was successful */
+        if (authSuccess) {
+  /* The access token is automatically set in the Twitch object and will be sent with all further API requests! */
+            String accessToken = twitch.auth().getAccessToken(); // if we want to explicitly get it for some reason
+            System.out.println("Access Token: " + accessToken);
+        } else {
+  /* Authentication failed, most likely because the user denied the authorization request */
+            System.out.println(twitch.auth().getAuthenticationError());
+        }
+
+
+
 
     private static class Commands extends ListenerAdapter {
 

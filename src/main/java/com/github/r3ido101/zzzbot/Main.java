@@ -1,5 +1,7 @@
 package com.github.r3ido101.zzzbot;
 
+import org.pircbotx.hooks.ListenerAdapter;
+import org.pircbotx.hooks.types.GenericMessageEvent;
 import org.slf4j.Logger;
 import org.pircbotx.Configuration;
 import org.pircbotx.*;
@@ -75,7 +77,7 @@ public class Main
                 .setName(botName) //
                 .setServerPassword(oauthPassword) //
                 .addAutoJoinChannel("#" + channel) //
-                .addListener(new Listener()) //
+                .addListener(new Commands()) //
                 .buildConfiguration();
 
         PircBotX bot = new PircBotX(configuration);
@@ -85,4 +87,30 @@ public class Main
             t.printStackTrace();
         }
     }
+
+    private static class Commands extends ListenerAdapter {
+
+        public void onGenericMessage(GenericMessageEvent e) {
+
+            if(e.getMessage().equalsIgnoreCase("!test")) {
+                e.respondWith("this is a test.");
+            }
+
+            if(e.getMessage().equalsIgnoreCase("Kappa")) {
+                e.respond("your not a Kappa your a KappaRoss");
+
+            }
+            if(e.getMessage().equalsIgnoreCase("!fucked")) {
+                e.respond(" - whent go go and fuck a girl!");
+
+            }
+
+            if(e.getMessage().equalsIgnoreCase("!bot")) {
+                e.respondWith("/me " + "⛔ " + "I'm zZz_Bot Made By R3ido101 (https://www.twitch.tv/R3ido101) I use Pircbotx version - " + PircBotX.VERSION + " to work!" + " ⛔");
+            }
+
+        }
+
+    }
+
 }

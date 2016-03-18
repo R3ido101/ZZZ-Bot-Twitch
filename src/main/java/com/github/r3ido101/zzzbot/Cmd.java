@@ -3,15 +3,17 @@ package com.github.r3ido101.zzzbot;
 import org.pircbotx.PircBotX;
 import org.pircbotx.hooks.ListenerAdapter;
 import org.pircbotx.hooks.types.GenericMessageEvent;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.util.Map;
 
 
-public class Commands extends ListenerAdapter {
+public class Cmd extends ListenerAdapter {
 
-    public static org.slf4j.Logger logger = LoggerFactory.getLogger(Main.class);
+
+    public static Logger logger = LoggerFactory.getLogger(Main.class);
     public static Map<String, Object> conf = null;
     public static File configurationFile = new File("./Config/botlogin.yml");
 
@@ -21,8 +23,6 @@ public class Commands extends ListenerAdapter {
         String botName = (String) conf.getOrDefault("name", " nick");
         String oauthPassword = (String) conf.getOrDefault("oauth", "default password");
         String channel = (String) conf.getOrDefault("channel", "default channel");
-        logger.info("botName : " + botName + " oauthPassword :  " + oauthPassword + " channel : " + channel);
-        logger.info("We are now connecting to " + channel);
 
 
         if (e.getMessage().equalsIgnoreCase("!test")) {

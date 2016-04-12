@@ -4,13 +4,13 @@
 
 
 # Put Your Bot Name Here.
-name : !!str zzz_bot
+name : !!str name
 
 # Put your OAUTH key that you can get from https://www.twitchapps.com/tmi here.
-oauth : !!str oauth:dmnvjz53jslkwvx44qlzddlmlv3ba1
+oauth : !!str oauth:############################
 
 # Put The Channel Here you want the bot to join.
-channel : !!str highsight
+channel : !!str channel
 
 # If you want to give credit to friend
 
